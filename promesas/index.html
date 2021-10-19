@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+const datos=[
+  {nombre:'juan',
+   edad:25,
+   sexo:'M'
+  },
+  {nombre:'alberto',
+   edad:28,
+   sexo:'M'
+  },
+  {nombre:'andrea',
+   edad:29,
+   sexo:'F'
+  }
+]
+
+const getDatos =()=>{
+  
+  return new Promise((resolve,reject)=>{
+      if(datos.length===0){
+          reject(new Error('NO existen datos'))
+      }
+    setTimeout( ()=>{
+    resolve(datos)
+  },2500)
+    
+  })
+}
+//getDatos()
+ // .then((datos)=>console.log(datos))
+
+  async function traerDatos(){
+    try {
+        const datos =await getDatos();
+        console.log(datos)
+    } catch (error) {
+        console.log(error.message);
+    }
+  }
+  
+  traerDatos()
+</script>
